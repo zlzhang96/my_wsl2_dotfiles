@@ -149,3 +149,11 @@ fi
 
 
 source /home/zzl/.config/broot/launcher/bash/br
+
+
+# Maven
+export MAVEN_HOME=/usr/bin/maven
+export PATH=$PATH:$MAVEN_HOME/bin
+
+# Ocaml & DUNE(Especially for it!)
+eval `opam env`
