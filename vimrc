@@ -1,3 +1,4 @@
+" Comments in Vimscript start with a `"`.
 " If you open this file in Vim, it'll be syntax highlighted for you.
 
 " Vim is based on Vi. Setting `nocompatible` switches from the default
@@ -8,7 +9,7 @@
 " loaded some other way (e.g. saved as `foo`, and then Vim started with
 " `vim -u foo`).
 set nocompatible
-
+	
 " Turn on syntax highlighting.
 syntax on
 
@@ -48,6 +49,8 @@ set hidden
 set ignorecase
 set smartcase
 
+" highlight the searched words.
+set hlsearch
 " Enable searching as you type, rather than waiting till you press enter.
 set incsearch
 " Unbind some useless/annoying default key bindings.
@@ -89,10 +92,11 @@ noremap L $
 noremap J G
 noremap K gg
 
+
 " colorscheme torte
 colorscheme slate
 
-set tabstop=4
+set tabstop=2
 set shiftwidth=4
 set autoindent
 set scrolloff=999
@@ -132,3 +136,13 @@ for tool in s:opam_packages
   endif
 endfor
 " ## end of OPAM user-setup addition for vim / base ## keep this line
+
+" Support WSLYank
+" Vim --> Windows: Under the Visual Mode and yank(y) the content, and you can paste in Windows 
+" Windows --> Vim: Copy the content and right-clip the mouse to paste in Vim
+if system('uname -r') =~ "microsoft"
+	augroup Yank
+	autocmd!
+	autocmd! TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
+	augroup END
+endif
