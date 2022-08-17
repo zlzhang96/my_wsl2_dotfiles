@@ -76,7 +76,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git z zsh-autosuggestions zsh-syntax-highlighting extract fzf)
+plugins=(git z zsh-autosuggestions zsh-syntax-highlighting extract fzf tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,6 +112,7 @@ alias mv="mv -i"
 alias fd="fdfind --hidden"
 alias lsf="ls -l"
 eval "$(thefuck --alias fuck)"
+alias gs="git status"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -147,6 +148,9 @@ if [ -x /usr/bin/dircolors ]; then
 	alias egrep='egrep --color=auto'	
 fi
 
+
+# Nord dircolors！
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 source /home/zzl/.config/broot/launcher/bash/br
 

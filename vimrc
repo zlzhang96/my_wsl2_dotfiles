@@ -93,19 +93,55 @@ noremap J G
 noremap K gg
 
 " colorscheme torte
-colorscheme slate
+" colorscheme slate
+colorscheme nord
 
 set tabstop=2
 set shiftwidth=4
 set autoindent
 set scrolloff=999
 
+" Because we use lightline.vim, -- INSERT -- is unnecessary anymore
+" But with laststatus=2, we still can alert the error 
+set noshowmode
+
+" nord vim statusline colorscheme!
+let g:lightline = {
+      \ 'colorscheme': 'nord',
+	    \ }
+
+
 " Support WSLYank
 " Vim --> Windows: Under the Visual Mode and yank(y) the content, and you can paste in Windows 
-" Windows --> Vim: Copy the content and right-clip the mouse to paste in Vim
+" Windows --> Vim: Copy the content and right-click the mouse to paste in Vim
 if system('uname -r') =~ "microsoft"
 	augroup Yank
 	autocmd!
 	autocmd! TextYankPost * :call system('/mnt/c/windows/system32/clip.exe ',@")
 	augroup END
+endif
+
+
+
+" Map the <Space> as Leader Key
+nnoremap <SPACE> <Nop>
+let mapleader = " " 
+
+" quote the word"
+nnoremap <leader>" viw<esc>bi"<esc>ea"<esc>
+
+" open nerdtree plugin" 
+nnoremap <leader>t :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+
+if &term =~ "xterm"
+		let &t_SI = "\<Esc>[6 q"
+		let &t_SR = "\<Esc>[3 q"
+		let &t_EI = "\<Esc>[1 q"
+endif
+
+if exists('$TMUX')
+		let &t_SI .= "\e[6 q"
+    let &t_SR .= "\e[3 q"
+		let &t_EI .= "\e[1 q"
 endif

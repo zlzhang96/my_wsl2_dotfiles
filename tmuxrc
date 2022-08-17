@@ -1,6 +1,6 @@
 #
 # author   : Zhang Yida 
-# modified : 2022 Aug 16
+# modified : 2022 Aug 17
 #
 
 # tmux层次为session-->window->pane
@@ -52,8 +52,18 @@ set -g default-command /bin/zsh
 bind ! splitw htop
 
 
+
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-sensible'
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+
+
+# Control the status bar arrow with usage of patched „powerline“ styled font elements.
+set -g @nord_tmux_no_patched_font "0"
+
 # Nord Theme
-#run-shell "~/.tmux/themes/nord-tmux/nord.tmux"
+run-shell "~/.tmux/themes/nord-tmux/nord.tmux"
 
 #Contents below are the original configurations for tmux, I did't change them, just to record the native commands.
 #Prefix c 创建新窗口
@@ -71,3 +81,7 @@ bind ! splitw htop
 #Prefix o 选择下一个面板
 #Prefix Ctrl+方向键  以1个单元格为单位调整当前面板边缘
 #Prefix Alt+方向键   以5个单元格为单位调整当前面板边缘
+
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
