@@ -898,7 +898,9 @@ PASTEL COLORS
 
 .theme-dark {
   --cerulean: #84b6ff;
-  --em-color: var(--cerulean);
+  /* --em-color: It is relating to the color of italic */
+  /* L: change the color for italic */
+  --em-color: var(--pastelyellow);
   /* --strong-color: hsl(var(--boldlightpink)); */
   /* L: change the color for **something** */
   --strong-color: var(--red);
@@ -9879,7 +9881,7 @@ body .workspace-leaf-content[data-type="dictionary-view"] .searchbox > button {
   font-size: 20px !important;
 }
 .markdown-preview-view h6 {
-  color: var(--purple) !important;
+  color: var(--frost1) !important;
   font-size: 18px !important;
 }
 
@@ -9893,22 +9895,22 @@ body .workspace-leaf-content[data-type="dictionary-view"] .searchbox > button {
   color: var(--aqua) !important;
 }
 .cm-header-4 {
-  color: var(--green) !important;
+  color: var(--frost1) !important;
 }
 .cm-header-5 {
-  color: var(--orange) !important;
-}
+  color: var(--green) !important;
+} 
 .cm-header-6 {
-  color: var(--purple) !important;
+  color: var(--orange) !important;
 }
 
 .markdown-preview-view blockquote {
     color: #88C0D0;
 }
 blockquote p {
-  color: var(--cerulean);
+    color: #88C0D0;
 }
-/* 首行缩进 会导致tag也会有缩进*/
+/* 首行缩进 会导致tag也会有缩进 需要更精细的调整*/
 /* .markdown-preview-section p{
     text-indent: 2em;
 } */
@@ -9931,3 +9933,23 @@ blockquote p {
 .HyperMD-header-6 {
   font-size: 18px;
 }
+
+/* Unindent the fists line for codeblock. */
+/* Have copyd this function to CSS snippets */
+pre[class*="language-"]{
+  text-indent: -15px !important;
+}
+
+/* ———————————————————————————————————————— */
+/* Still under attempting... */
+.cm-hmd-codeblock {
+  color: white !important;
+}
+.cm-hmd-codeblock.cm-variable {
+  color: #f6da59 !important;
+}
+.token.number {
+  color: #c4d2a6 !important;
+}
+
+
