@@ -92,6 +92,12 @@ noremap L $
 noremap J G
 noremap K gg
 
+" test the function of moving under insert mode
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
 " colorscheme torte
 " colorscheme slate
 colorscheme nord
@@ -128,12 +134,18 @@ nnoremap <SPACE> <Nop>
 let mapleader = " " 
 
 " quote the word"
-nnoremap <leader>" viw<esc>bi"<esc>ea"<esc>
+nnoremap <leader>" viw<ESC>bi"<ESC>ea"<ESC>
+
+" add a comma in the end
+noremap <leader>, <ESC>$a,<ESC>
 
 " open nerdtree plugin" 
 nnoremap <leader>t :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+map <F2> :NERDTreeToggle<CR>
+let NERDTreeWinSize=25
+let g:NERDTreeStatusline = "%{exists('b:NERDTreeRoot')?b:NERDTreeRoot.path._strForUI():''}"
 
+" Set cursor shape and color in Windows Terminal
 if &term =~ "xterm"
 		let &t_SI = "\<Esc>[6 q"
 		let &t_SR = "\<Esc>[3 q"
@@ -145,3 +157,6 @@ if exists('$TMUX')
     let &t_SR .= "\e[3 q"
 		let &t_EI .= "\e[1 q"
 endif
+
+nmap <leader>w :w!<CR> :echoe "Saved!"<CR>
+

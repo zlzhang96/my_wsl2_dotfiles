@@ -73,7 +73,7 @@ run-shell "~/.tmux/themes/nord-tmux/nord.tmux"
 #Prefix	s	显示会话列表，用于选择并切换
 #Prefix w 显示窗口列表，用于选择并切换窗口
 #Prefix . 修改当前窗口编号（适用于重新排列窗口）
-#Prefix x	关闭当前面板
+#Prefix x	关闭当前面板（询问y/n）
 #Prefix z 最大化当前面板/恢复(临时状态）
 #Prefix q 显示面板编号，输入对应数字可跳转
 #Prefix { 向前置换面板
@@ -81,7 +81,14 @@ run-shell "~/.tmux/themes/nord-tmux/nord.tmux"
 #Prefix o 选择下一个面板
 #Prefix Ctrl+方向键  以1个单元格为单位调整当前面板边缘
 #Prefix Alt+方向键   以5个单元格为单位调整当前面板边缘
+#Ctrl+d 直接关闭当前面板（不询问）
 
+#Copy mode
+#1. 按Prefix [ 进入复制模式
+#2. 移动鼠标到要复制的区域，支持vim的搜索功能"/","?"
+#3. 按空格键开始选择复制区域
+#4. 选择完成后按enter键退出复制模式
+#5、在输入模式下按Prefix ] 进行粘贴
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'

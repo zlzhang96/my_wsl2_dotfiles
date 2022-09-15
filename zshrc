@@ -107,12 +107,13 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias ll="ls -lah"
-alias gt="git status"
 alias mv="mv -i"
 alias fd="fdfind --hidden"
 alias lsf="ls -l"
 eval "$(thefuck --alias fuck)"
-alias gs="git status"
+# gis commands are already integrated
+#alias gs="git status"
+#alias gt="git status"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -131,9 +132,6 @@ function proxy_off() {
 
 setopt HIST_IGNORE_SPACE
 
-# cancel the attached # after non-newline print, but it seems doesn't work.
-# unsetopt prompt_cr prompt_sp
-
 
 source /usr/share/doc/fzf/examples/key-bindings.zsh
 source /usr/share/doc/fzf/examples/completion.zsh
@@ -148,12 +146,20 @@ if [ -x /usr/bin/dircolors ]; then
 	alias egrep='egrep --color=auto'	
 fi
 
+# unset the symnbol % for the end of partial line in zsh
+PROMPT_EOL_MARK=''
+# use ',' to complete the autosuggestion instead of '->' 
+bindkey ',' autosuggest-accept
+
+
 
 # Nord dircolors！
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
 source /home/zzl/.config/broot/launcher/bash/br
 
+# Set the default editor
+export EDITOR=vim
 
 # Maven
 export MAVEN_HOME=/usr/bin/maven
@@ -161,3 +167,6 @@ export PATH=$PATH:$MAVEN_HOME/bin
 
 # Ocaml & DUNE(Especially for it!)
 eval `opam env`
+
+# Add ~/.local/bin to Path
+export PATH="$HOME/.local/bin:$PATH"
