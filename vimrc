@@ -128,13 +128,13 @@ if system('uname -r') =~ "microsoft"
 endif
 
 
+" use "+ to use system clipboard
+" use :echo has('clipboard') to check whether it is supported, with expected "1"
 
 " Map the <Space> as Leader Key
 nnoremap <SPACE> <Nop>
 let mapleader = " " 
 
-" quote the word"
-nnoremap <leader>" viw<ESC>bi"<ESC>ea"<ESC>
 
 " add a comma in the end
 noremap <leader>, <ESC>$a,<ESC>
