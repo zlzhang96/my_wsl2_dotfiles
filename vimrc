@@ -1,6 +1,3 @@
-" Comments in Vimscript start with a `"`.
-" If you open this file in Vim, it'll be syntax highlighted for you.
-
 " Vim is based on Vi. Setting `nocompatible` switches from the default
 " Vi-compatibility mode and enables useful Vim functionality. This
 " configuration option turns out not to be necessary for the file named
@@ -129,17 +126,15 @@ endif
 
 
 " use "+ to use system clipboard
-" use :echo has('clipboard') to check whether it is supported, with expected "1"
+" use :echo has('clipboard') to check whether it is supported, with expected '1'
+set clipboard=unnamed
 
 " Map the <Space> as Leader Key
 nnoremap <SPACE> <Nop>
-let mapleader = " " 
+let mapleader = " "
 
 
-" add a comma in the end
-noremap <leader>, <ESC>$a,<ESC>
-
-" open nerdtree plugin" 
+" open nerdtree plugin"
 nnoremap <leader>t :NERDTree<CR>
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeWinSize=25
@@ -159,4 +154,3 @@ if exists('$TMUX')
 endif
 
 nmap <leader>w :w!<CR> :echoe "Saved!"<CR>
-
